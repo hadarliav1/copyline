@@ -1,9 +1,14 @@
-import { cp, mkdir, rm, writeFile } from "node:fs/promises";
+import { cp, mkdir, readFile, rm, writeFile } from "node:fs/promises";
 import { existsSync } from "node:fs";
 import { products } from "../src/content.js";
 
 const dist = new URL("../dist/", import.meta.url);
 const files = ["index.html", "src", "public"];
+
+// Set BASE_PATH when deploying under a subpath (e.g. a GitHub Pages project
+// site served at /copyline/). Left unset for local dev and for production
+// at the domain root, so this is a no-op by default.
+const basePath = process.env.BASE_PATH || "";
 
 await rm(dist, { recursive: true, force: true });
 await mkdir(dist, { recursive: true });
@@ -14,6 +19,22 @@ for (const file of files) {
   if (existsSync(from)) {
     await cp(from, to, { recursive: true });
   }
+}
+
+if (basePath) {
+  const indexPath = new URL("../dist/index.html", import.meta.url);
+  let html = await readFile(indexPath, "utf8");
+  html = html
+    .replace('href="/public/assets/logo-mark.svg"', `href="${basePath}/public/assets/logo-mark.svg"`)
+    .replace('href="/public/assets/copyline-hero.png"', `href="${basePath}/public/assets/copyline-hero.png"`)
+    .replace('href="/src/styles.css"', `href="${basePath}/src/styles.css"`)
+    .replace('src="/src/main.js"', `src="${basePath}/src/main.js"`);
+  await writeFile(indexPath, html, "utf8");
+
+  const mainJsPath = new URL("../dist/src/main.js", import.meta.url);
+  let mainJs = await readFile(mainJsPath, "utf8");
+  mainJs = mainJs.replace('const BASE_PATH = "";', `const BASE_PATH = "${basePath}";`);
+  await writeFile(mainJsPath, mainJs, "utf8");
 }
 
 await writeFile(
