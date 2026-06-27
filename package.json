@@ -1,0 +1,19 @@
+{
+  "name": "copyline-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Bilingual Hebrew-first website for CopyLine printer services and sales.",
+  "type": "module",
+  "scripts": {
+    "dev": "python3 scripts/serve.py",
+    "build": "node scripts/build.mjs",
+    "preview": "python3 scripts/serve.py dist 4173"
+  },
+  "keywords": [
+    "copyline",
+    "printers",
+    "hebrew",
+    "rtl",
+    "static-site"
+  ]
+}
