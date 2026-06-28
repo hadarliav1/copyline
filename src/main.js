@@ -171,6 +171,7 @@ function footer(lang) {
 function hero(lang) {
   const t = copy[lang].home;
   const c = copy[lang].common;
+  const slides = products.filter((p) => p.image);
   return `
     <section class="hero premium-hero">
       <div class="hero-copy">
@@ -185,8 +186,8 @@ function hero(lang) {
         <div class="proof-row">${t.proof.map((item) => `<span>${icons.shield}${item}</span>`).join("")}</div>
       </div>
       <div class="hero-media-frame">
-        <div class="hero-media">
-          <img src="${BASE_PATH}/public/assets/copyline-hero.png" alt="${t.headline}" />
+        <div class="hero-media hero-carousel" data-hero-carousel>
+          ${slides.map((p, i) => `<img class="hero-slide${i === 0 ? " active" : ""}" src="${BASE_PATH}${p.image}" alt="${p[lang].name}" loading="${i === 0 ? "eager" : "lazy"}" />`).join("")}
           <div class="hero-glass">
             <strong>${lang === "he" ? "Managed Print" : "Managed Print"}</strong>
             <span>${lang === "he" ? "ציוד, שירות ומונים תחת סטנדרט אחד" : "Equipment, service and meters under one standard"}</span>
@@ -521,6 +522,26 @@ function bindUi() {
     button.setAttribute("aria-expanded", String(open));
   });
   initReveal();
+  initHeroCarousel();
+}
+
+let heroCarouselTimer = null;
+
+function initHeroCarousel() {
+  if (heroCarouselTimer) {
+    clearInterval(heroCarouselTimer);
+    heroCarouselTimer = null;
+  }
+  const slides = document.querySelectorAll("[data-hero-carousel] .hero-slide");
+  if (slides.length < 2) return;
+  const reduceMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+  if (reduceMotion) return;
+  let index = 0;
+  heroCarouselTimer = setInterval(() => {
+    slides[index].classList.remove("active");
+    index = (index + 1) % slides.length;
+    slides[index].classList.add("active");
+  }, 4200);
 }
 
 function initReveal() {
