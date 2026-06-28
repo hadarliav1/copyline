@@ -60,6 +60,7 @@ function setMeta(lang, page, product) {
   upsertMeta("property", "og:description", description);
   upsertMeta("property", "og:url", `https://copyline.co.il${location.pathname}`);
   upsertMeta("property", "og:image", `https://copyline.co.il${product?.image || "/public/assets/copyline-hero.png"}`);
+  upsertCanonical(`https://copyline.co.il${location.pathname}`);
   setStructuredData(lang, page, product);
 }
 
@@ -71,6 +72,16 @@ function upsertMeta(attr, key, value) {
     document.head.appendChild(tag);
   }
   tag.content = value;
+}
+
+function upsertCanonical(href) {
+  let tag = document.head.querySelector('link[rel="canonical"]');
+  if (!tag) {
+    tag = document.createElement("link");
+    tag.setAttribute("rel", "canonical");
+    document.head.appendChild(tag);
+  }
+  tag.setAttribute("href", href);
 }
 
 function setStructuredData(lang, page, product) {
