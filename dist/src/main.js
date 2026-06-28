@@ -2,6 +2,11 @@ import { copy, languages, products, routes } from "./content.js";
 
 const app = document.querySelector("#app");
 
+// Replaced at build time (see scripts/build.mjs) when deploying under a
+// subpath, e.g. a GitHub Pages project site served at /copyline/.
+// Stays "" for local dev and for production at the domain root.
+const BASE_PATH = "";
+
 const icons = {
   arrow: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>',
   printer: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 8V3h10v5M6 17H4a2 2 0 0 1-2-2v-4a3 3 0 0 1 3-3h14a3 3 0 0 1 3 3v4a2 2 0 0 1-2 2h-2M7 14h10v7H7zM7 12h.01"/></svg>',
@@ -13,7 +18,10 @@ const icons = {
 };
 
 function stateFromPath() {
-  const parts = location.pathname.split("/").filter(Boolean);
+  const trimmed = BASE_PATH && location.pathname.startsWith(BASE_PATH)
+    ? location.pathname.slice(BASE_PATH.length)
+    : location.pathname;
+  const parts = trimmed.split("/").filter(Boolean);
   const lang = languages[parts[0]] ? parts[0] : "he";
   const page = parts[1] || "";
   const slug = parts[2] || "";
@@ -21,7 +29,7 @@ function stateFromPath() {
 }
 
 function pathFor(lang, page = "", slug = "") {
-  return `/${[lang, page, slug].filter(Boolean).join("/")}`;
+  return `${BASE_PATH}/${[lang, page, slug].filter(Boolean).join("/")}`;
 }
 
 function navigate(event) {
@@ -112,8 +120,7 @@ function layout(lang, page, child) {
     </div>
     <header class="site-header">
       <a class="brand" href="${pathFor(lang)}" data-route aria-label="CopyLine">
-        <img src="/public/assets/logo-mark.svg" alt="" width="44" height="44" />
-        <span><b>CopyLine</b><small>קופיליין</small></span>
+        <img src="${BASE_PATH}/public/assets/logo-full.png" alt="CopyLine קופיליין" class="logo-full" />
       </a>
       <button class="menu-toggle" aria-label="Menu" aria-expanded="false">${icons.message}</button>
       <nav class="nav" aria-label="Main navigation">
@@ -137,8 +144,7 @@ function footer(lang) {
       <div class="footer-grid">
         <div>
           <a class="brand footer-brand" href="${pathFor(lang)}" data-route>
-            <img src="/public/assets/logo-mark.svg" alt="" width="40" height="40" />
-            <span><b>CopyLine</b><small>${lang === "he" ? "פתרונות הדפסה לעסקים" : "Business printing solutions"}</small></span>
+            <span class="logo-chip"><img src="${BASE_PATH}/public/assets/logo-full.png" alt="CopyLine קופיליין" class="logo-full" /></span>
           </a>
           <p>${t.home.intro}</p>
         </div>
@@ -175,7 +181,7 @@ function hero(lang) {
       </div>
       <div class="hero-media-frame">
         <div class="hero-media">
-          <img src="/public/assets/copyline-hero.png" alt="${t.headline}" />
+          <img src="${BASE_PATH}/public/assets/copyline-hero.png" alt="${t.headline}" />
           <div class="hero-glass">
             <strong>${lang === "he" ? "Managed Print" : "Managed Print"}</strong>
             <span>${lang === "he" ? "ציוד, שירות ומונים תחת סטנדרט אחד" : "Equipment, service and meters under one standard"}</span>
@@ -218,7 +224,7 @@ function home(lang) {
         </div>
       </div>
       <div class="split-media">
-        <img src="/public/assets/printer-lineup.png" alt="${t.salesTitle}" />
+        <img src="${BASE_PATH}/public/assets/printer-lineup.png" alt="${t.salesTitle}" />
         <div class="split-badge"><b>${copy[lang].services.items.length}</b><span>${lang === "he" ? "שירותים מקצועיים" : "professional services"}</span></div>
       </div>
     </section>
@@ -346,7 +352,7 @@ function productPage(lang, product) {
   return `
     <section class="product-hero">
       <div class="product-gallery">
-        ${product.image ? `<img src="${product.image}" alt="${p.name}" />` : productImagePending(lang, p.name)}
+        ${product.image ? `<img src="${BASE_PATH}${product.image}" alt="${p.name}" />` : productImagePending(lang, p.name)}
         <div><span>${t.gallery}</span><span>${product.category}</span></div>
       </div>
       <div>
@@ -420,7 +426,7 @@ function productCard(lang, product) {
   const labels = specLabels(lang);
   return `
     <article class="product-card reveal">
-      ${product.image ? `<img loading="lazy" src="${product.image}" alt="${p.name}" />` : productImagePending(lang, p.name)}
+      ${product.image ? `<img loading="lazy" src="${BASE_PATH}${product.image}" alt="${p.name}" />` : productImagePending(lang, p.name)}
       <div>
         <p class="eyebrow">${p.title}</p>
         <h2><bdi>${p.name}</bdi></h2>

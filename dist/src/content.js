@@ -161,8 +161,7 @@ export const products = [
     brand: "Brother",
     model: "MFC-J6910DW",
     category: "desktop-color",
-    image: "",
-    imagePending: true,
+    image: "/public/assets/products/brother-mfc-j6910dw.webp",
     modes: ["purchase"],
     specs: {
       speed: "12 ppm mono / 10 ppm color",
@@ -177,16 +176,14 @@ export const products = [
       title: "מדפסת משולבת צבעונית A3",
       description: "מדפסת Brother שולחנית משולבת עם תמיכה ב-A4 וב-A3, פקס, סריקה, צילום והדפסה צבעונית.",
       suitable: "משרדים קטנים, עמדות עבודה וצוותים שצריכים A3 במדפסת קומפקטית.",
-      benefits: ["תמיכה ב-A3", "פקס מובנה", "מגירת 250 דפים"],
-      note: "במצגת לא צורפה תמונת מוצר מאומתת לדגם זה, ולכן האתר לא מציג תמונה עד לאימות."
+      benefits: ["תמיכה ב-A3", "פקס מובנה", "מגירת 250 דפים"]
     },
     en: {
       name: "Brother MFC-J6910DW",
       title: "A3 color multifunction printer",
       description: "Brother desktop multifunction printer with A4/A3 support, fax, scan, copy and color printing.",
       suitable: "Small offices, workstations and teams that need A3 support in a compact printer.",
-      benefits: ["A3 support", "Built-in fax", "250-sheet tray"],
-      note: "The presentation did not include a verified product image for this model, so no image is shown until verification."
+      benefits: ["A3 support", "Built-in fax", "250-sheet tray"]
     }
   },
   {
@@ -299,16 +296,14 @@ export const products = [
       title: "מדפסת Kyocera משולבת צבעונית",
       description: "מדפסת משולבת Kyocera לעסקים עם הדפסה, סריקה והעתקה בקצב גבוה.",
       suitable: "משרדים, צוותי עבודה ועסקים שצריכים A4 צבעוני מהיר ואמין.",
-      benefits: ["עד 42 דפים לדקה", "מדפסת צבעונית משולבת", "מבנה קומפקטי יחסית"],
-      note: "במצגת הופיע גם טקסט שיווקי המתאר שחור-לבן ודגם MA400cix; יש לאמת מול מפרט היצרן לפני פרסום סופי."
+      benefits: ["עד 42 דפים לדקה", "מדפסת צבעונית משולבת", "מבנה קומפקטי יחסית"]
     },
     en: {
       name: "Kyocera ECOSYS MA4000cix",
       title: "Kyocera color multifunction printer",
       description: "Kyocera multifunction business printer with fast print, scan and copy capabilities.",
       suitable: "Offices, workgroups and businesses that need fast, reliable A4 color output.",
-      benefits: ["Up to 42 ppm", "Color multifunction printer", "Relatively compact footprint"],
-      note: "The presentation also included marketing text describing monochrome output and MA400cix; verify against the manufacturer spec before final publication."
+      benefits: ["Up to 42 ppm", "Color multifunction printer", "Relatively compact footprint"]
     }
   }
 ];
