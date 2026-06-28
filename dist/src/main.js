@@ -18,9 +18,12 @@ const icons = {
 };
 
 function stateFromPath() {
-  const trimmed = BASE_PATH && location.pathname.startsWith(BASE_PATH)
-    ? location.pathname.slice(BASE_PATH.length)
+  const source = BASE_PATH && location.hash.startsWith("#/")
+    ? location.hash.slice(1)
     : location.pathname;
+  const trimmed = BASE_PATH && source.startsWith(BASE_PATH)
+    ? source.slice(BASE_PATH.length)
+    : source;
   const parts = trimmed.split("/").filter(Boolean);
   const lang = languages[parts[0]] ? parts[0] : "he";
   const page = parts[1] || "";
@@ -29,7 +32,8 @@ function stateFromPath() {
 }
 
 function pathFor(lang, page = "", slug = "") {
-  return `${BASE_PATH}/${[lang, page, slug].filter(Boolean).join("/")}`;
+  const route = `/${[lang, page, slug].filter(Boolean).join("/")}`;
+  return BASE_PATH ? `${BASE_PATH}/#${route}` : route;
 }
 
 function navigate(event) {
