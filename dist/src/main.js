@@ -5,7 +5,7 @@ const app = document.querySelector("#app");
 // Replaced at build time (see scripts/build.mjs) when deploying under a
 // subpath, e.g. a GitHub Pages project site served at /copyline/.
 // Stays "" for local dev and for production at the domain root.
-const BASE_PATH = "";
+const BASE_PATH = "/copyline";
 
 const icons = {
   arrow: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>',
