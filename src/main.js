@@ -6,6 +6,7 @@ const app = document.querySelector("#app");
 // subpath, e.g. a GitHub Pages project site served at /copyline/.
 // Stays "" for local dev and for production at the domain root.
 const BASE_PATH = "";
+const USE_HASH_ROUTES = false;
 
 const icons = {
   arrow: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>',
@@ -18,7 +19,7 @@ const icons = {
 };
 
 function stateFromPath() {
-  const source = BASE_PATH && location.hash.startsWith("#/")
+  const source = (USE_HASH_ROUTES || BASE_PATH) && location.hash.startsWith("#/")
     ? location.hash.slice(1)
     : location.pathname;
   const trimmed = BASE_PATH && source.startsWith(BASE_PATH)
@@ -33,7 +34,7 @@ function stateFromPath() {
 
 function pathFor(lang, page = "", slug = "") {
   const route = `/${[lang, page, slug].filter(Boolean).join("/")}`;
-  return BASE_PATH ? `${BASE_PATH}/#${route}` : route;
+  return USE_HASH_ROUTES ? `${BASE_PATH}/#${route}` : `${BASE_PATH}${route}`;
 }
 
 function navigate(event) {

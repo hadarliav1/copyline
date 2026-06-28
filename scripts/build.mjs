@@ -9,6 +9,7 @@ const files = ["index.html", "src", "public"];
 // site served at /copyline/). Left unset for local dev and for production
 // at the domain root, so this is a no-op by default.
 const basePath = process.env.BASE_PATH || "";
+const useHashRoutes = process.env.HASH_ROUTES === "true";
 
 await rm(dist, { recursive: true, force: true });
 await mkdir(dist, { recursive: true });
@@ -21,7 +22,7 @@ for (const file of files) {
   }
 }
 
-if (basePath) {
+if (basePath || useHashRoutes) {
   const indexPath = new URL("../dist/index.html", import.meta.url);
   let html = await readFile(indexPath, "utf8");
   html = html
@@ -34,6 +35,7 @@ if (basePath) {
   const mainJsPath = new URL("../dist/src/main.js", import.meta.url);
   let mainJs = await readFile(mainJsPath, "utf8");
   mainJs = mainJs.replace('const BASE_PATH = "";', `const BASE_PATH = "${basePath}";`);
+  mainJs = mainJs.replace("const USE_HASH_ROUTES = false;", `const USE_HASH_ROUTES = ${useHashRoutes};`);
   await writeFile(mainJsPath, mainJs, "utf8");
 }
 

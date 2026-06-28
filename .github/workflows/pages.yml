@@ -27,7 +27,7 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Build
-        run: BASE_PATH=/copyline npm run build
+        run: HASH_ROUTES=true npm run build
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
