@@ -120,8 +120,7 @@ function layout(lang, page, child) {
     </div>
     <header class="site-header">
       <a class="brand" href="${pathFor(lang)}" data-route aria-label="CopyLine">
-        <img src="${BASE_PATH}/public/assets/logo-mark.svg" alt="" width="44" height="44" />
-        <span><b>CopyLine</b><small>קופיליין</small></span>
+        <img src="${BASE_PATH}/public/assets/logo-full.png" alt="CopyLine קופיליין" class="logo-full" />
       </a>
       <button class="menu-toggle" aria-label="Menu" aria-expanded="false">${icons.message}</button>
       <nav class="nav" aria-label="Main navigation">
@@ -145,8 +144,7 @@ function footer(lang) {
       <div class="footer-grid">
         <div>
           <a class="brand footer-brand" href="${pathFor(lang)}" data-route>
-            <img src="${BASE_PATH}/public/assets/logo-mark.svg" alt="" width="40" height="40" />
-            <span><b>CopyLine</b><small>${lang === "he" ? "פתרונות הדפסה לעסקים" : "Business printing solutions"}</small></span>
+            <span class="logo-chip"><img src="${BASE_PATH}/public/assets/logo-full.png" alt="CopyLine קופיליין" class="logo-full" /></span>
           </a>
           <p>${t.home.intro}</p>
         </div>
