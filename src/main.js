@@ -130,14 +130,13 @@ function layout(lang, page, child) {
   const { slug } = stateFromPath();
   const languagePath = page === "printers" && slug ? pathFor(alternate, page, slug) : pathFor(alternate, page);
   return `
-    <div class="top-contact">
-      <span>${icons.phone}${t.common.callNow}</span>
-      <a href="tel:1700700388">${t.common.placeholderPhone}</a>
-    </div>
-    <header class="site-header">
+    <div class="top-contact top-brandbar">
       <a class="brand" href="${pathFor(lang)}" data-route aria-label="CopyLine">
         <img src="${BASE_PATH}/public/assets/logo-full.png" alt="CopyLine קופיליין" class="logo-full" />
       </a>
+      <a class="top-phone" href="tel:1700700388">${icons.phone}${t.common.placeholderPhone}</a>
+    </div>
+    <header class="site-header">
       <button class="menu-toggle" aria-label="Menu" aria-expanded="false">${icons.message}</button>
       <nav class="nav" aria-label="Main navigation">
         ${nav.map(([route, label]) => `<a data-route class="${route === page ? "active" : ""}" href="${pathFor(lang, route)}">${label}</a>`).join("")}
@@ -149,7 +148,7 @@ function layout(lang, page, child) {
     </header>
     <main id="main">${child}</main>
     ${footer(lang)}
-    <a class="whatsapp" href="https://wa.me/97230000000" aria-label="${t.common.whatsapp}">${icons.message}<span>${t.common.whatsapp}</span></a>
+    <a class="whatsapp" href="https://wa.me/972523445454" aria-label="${t.common.whatsapp}">${icons.message}<span>${t.common.whatsapp}</span></a>
   `;
 }
 
@@ -166,9 +165,7 @@ function footer(lang) {
         </div>
         <div>
           <h2>${t.nav.services}</h2>
-          <a href="${pathFor(lang, "services")}" data-route>${t.home.services[0]}</a>
-          <a href="${pathFor(lang, "services")}" data-route>${t.home.services[1]}</a>
-          <a href="${pathFor(lang, "services")}" data-route>${t.home.services[2]}</a>
+          ${t.home.services.map((s) => `<a href="${pathFor(lang, "services")}" data-route>${s}</a>`).join("")}
         </div>
         <div>
           <h2>${t.nav.contact}</h2>
@@ -234,7 +231,6 @@ function home(lang) {
       <div>
         <h2>${t.salesTitle}</h2>
         <p>${t.salesText}</p>
-        <p>${t.catalogIntegrity}</p>
         <div class="cta-row">
           <a class="button secondary" href="${pathFor(lang, "printers")}" data-route>${copy[lang].nav.printers}</a>
           <a class="button ghost light" href="${pathFor(lang, "contact")}" data-route>${copy[lang].common.quote}</a>
@@ -245,6 +241,14 @@ function home(lang) {
         <div class="split-badge"><b>${copy[lang].services.items.length}</b><span>${lang === "he" ? "שירותים מקצועיים" : "professional services"}</span></div>
       </div>
     </section>
+    <section class="section metrics-section">
+      <div class="section-head"><h2>${t.whyTitle}</h2></div>
+      <div class="metric-grid">
+        <div class="reveal"><span class="metric-icon">${icons.message}</span><b>01</b><span>${copy[lang].services.items[5][0]}</span></div>
+        <div class="reveal"><span class="metric-icon">${icons.toner}</span><b>02</b><span>${copy[lang].services.items[2][0]}</span></div>
+        <div class="reveal"><span class="metric-icon">${icons.wrench}</span><b>03</b><span>${copy[lang].services.items[1][0]}</span></div>
+      </div>
+    </section>
     <section class="section two-col solution-panel">
       <div>
         <p class="eyebrow">${copy[lang].nav.services}</p>
@@ -253,14 +257,6 @@ function home(lang) {
       </div>
       <div class="why-list">
         ${copy[lang].about.blocks.map(([title, text]) => `<div class="reveal"><strong>${title}</strong><p>${text}</p></div>`).join("")}
-      </div>
-    </section>
-    <section class="section metrics-section">
-      <div class="section-head"><h2>${t.whyTitle}</h2></div>
-      <div class="metric-grid">
-        <div class="reveal"><span class="metric-icon">${icons.message}</span><b>01</b><span>${copy[lang].services.items[5][0]}</span></div>
-        <div class="reveal"><span class="metric-icon">${icons.toner}</span><b>02</b><span>${copy[lang].services.items[2][0]}</span></div>
-        <div class="reveal"><span class="metric-icon">${icons.wrench}</span><b>03</b><span>${copy[lang].services.items[1][0]}</span></div>
       </div>
     </section>
     ${faqSection(lang)}
@@ -315,14 +311,14 @@ function printers(lang) {
 function faqSection(lang) {
   const items = lang === "he"
     ? [
-        ["האם אפשר להשכיר מדפסת או מכונת צילום?", "כן. ניתן להתאים מסלול השכרה לפי נפחי הדפסה, שירות וצרכי המשרד."],
-        ["איך יתווספו מוצרים לקטלוג?", "רק לאחר קבלת דגם אמיתי, מפרט, תמונת יצרן מתאימה, טונרים ושימושים מומלצים."],
-        ["האם יש שירות לעסקים קיימים?", "כן. האתר בנוי להוביל לפנייה מהירה עבור שירות, מונה, טונרים וייעוץ."]
+        ["איך אני יודע איזו מדפסת אני צריך?", "אצלנו כל לקוח יקבל אפיון אישי מול הצרכים שלו, ויחד נוכל להתאים את הפתרון המיטבי."],
+        ["מה טווח המחירים של מכונות הצילום?", "המחיר מותאם לפי צרכי הלקוח המשתנים, למשל: צבע או שחור-לבן, גודל המדפסת, מהירות ההדפסה ופרמטרים נוספים."],
+        ["איך עובד שירות התחזוקה?", "שירות התחזוקה נלווה לקניית המדפסת."]
       ]
     : [
-        ["Can printers or copiers be rented?", "Yes. Rental can be matched to print volume, service and office needs."],
-        ["How will products be added?", "Only after a real model, accurate manufacturer image, specs, toner compatibility and use cases are verified."],
-        ["Is service available for existing businesses?", "Yes. The site is optimized for quick service, meter reading, toner and consulting inquiries."]
+        ["How do I know which printer I need?", "Every customer receives a personal needs assessment, and together we tailor the optimal solution."],
+        ["What is the price range of the copiers?", "Pricing is tailored to each customer\u2019s needs \u2014 for example color vs. black-and-white, machine size, print speed and other parameters."],
+        ["How does the maintenance service work?", "The maintenance service accompanies the purchase of the printer."]
       ];
   return `
     <section class="section faq-section">
@@ -483,7 +479,7 @@ function contact(lang) {
         ${contactRow(icons.shield, c.address, c.placeholderAddress)}
         ${contactRow(icons.wrench, c.hours, c.businessHours)}
         <div class="map-placeholder">Google Maps</div>
-        <a class="button" href="https://wa.me/97230000000">${c.whatsapp}${icons.arrow}</a>
+        <a class="button" href="https://wa.me/972523445454">${c.whatsapp}${icons.arrow}</a>
       </aside>
     </section>
   `;

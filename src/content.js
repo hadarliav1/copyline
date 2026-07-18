@@ -320,8 +320,8 @@ export const copy = {
       address: "כתובת",
       hours: "שעות פעילות",
       placeholderPhone: "1-700-700-388",
-      placeholderEmail: "copyline.il@gmail.com",
-      placeholderAddress: "ישראל, אזור המרכז",
+      placeholderEmail: "office@copyline.co.il",
+      placeholderAddress: "אורה, דקל 47, ישראל",
       businessHours: "א'-ה' 08:30-17:30",
       formTitle: "דברו איתנו",
       formIntro: "השאירו פרטים ונחזור אליכם עם התאמה מקצועית לצורך שלכם.",
@@ -341,12 +341,11 @@ export const copy = {
       proof: ["מכירה והשכרה", "שליחת מונה מהירה", "שירות אמין ויחס אישי"],
       highlightsTitle: "כל מה שהמשרד צריך ממכונת צילום ועד טונרים",
       salesTitle: "מכונות צילום ומדפסות למשרד ולעסק",
-      salesText: "אזור המוצרים נבנה מראש לדגמים אמיתיים של מכונות צילום, מדפסות משולבות, מפרטים, תמונות ודפי מוצר מלאים.",
-      catalogIntegrity: "הקטלוג באתר לא מציג מוצרים מומצאים או תמונות לא תואמות. כל מוצר אמיתי יעלה רק לאחר אימות דגם, תמונה, מפרט, טונרים ושימושים מומלצים.",
-      businessTitle: "פתרונות הדפסה ללקוחות עסקיים",
+      salesText: "מגוון רחב של מכונות צילום ומדפסות בהתאמה אישית לפי צרכי הלקוח.",
+      businessTitle: "פתרונות הדפסה ללקוחות עסקיים ומוסדות חינוך",
       businessText: "התאמת ציוד, עלויות שימוש, טונרים, שירות ותחזוקה במקום אחד כדי שהעבודה בצוותים שלכם תישאר רציפה.",
       whyTitle: "למה לבחור ב-CopyLine",
-      services: ["מכונות צילום ומדפסות", "שירות ותחזוקה", "טונרים ושליחת מונה"]
+      services: ["מכונות צילום ומדפסות", "שירות ותחזוקה"]
     },
     about: {
       metaTitle: "אודות CopyLine | מכונות צילום ומדפסות בישראל",
@@ -431,8 +430,8 @@ export const copy = {
       address: "Address",
       hours: "Business Hours",
       placeholderPhone: "1-700-700-388",
-      placeholderEmail: "copyline.il@gmail.com",
-      placeholderAddress: "Israel, Central District",
+      placeholderEmail: "office@copyline.co.il",
+      placeholderAddress: "Ora, Dekel 47, Israel",
       businessHours: "Sun-Thu 08:30-17:30",
       formTitle: "Talk to us",
       formIntro: "Leave your details and we will recommend the right printing solution.",
@@ -452,12 +451,11 @@ export const copy = {
       proof: ["Sales and leasing", "Quick meter reading", "Reliable personal service"],
       highlightsTitle: "Everything the office needs from copiers to toner",
       salesTitle: "Copiers and printers for offices and businesses",
-      salesText: "The product area is prepared for real copier and printer models, specifications, images and full product pages.",
-      catalogIntegrity: "The catalog does not show sample models with mismatched images. Every real product will be published only after model, image, specs, toner compatibility and use cases are verified.",
-      businessTitle: "Printing solutions for business customers",
+      salesText: "A wide range of copiers and printers, custom-tailored to each customer\u2019s needs.",
+      businessTitle: "Printing solutions for business customers and educational institutions",
       businessText: "Equipment matching, usage costs, toner, service and maintenance in one place so your teams can keep working.",
       whyTitle: "Why choose CopyLine",
-      services: ["Copiers and printers", "Service and maintenance", "Toner and meter reading"]
+      services: ["Copiers and printers", "Service and maintenance"]
     },
     about: {
       metaTitle: "About CopyLine | Copiers and Printers in Israel",
