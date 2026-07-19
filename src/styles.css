@@ -1048,7 +1048,16 @@ details p {
   gap: 6px;
   padding: 16px 18px 14px;
 }
-.top-brandbar .brand img.logo-full { height: clamp(72px, 12vw, 110px); width: auto; display: block; }
+.top-brandbar .logo-chip {
+  display: inline-flex;
+  align-items: center;
+  background: #fff;
+  padding: 10px 24px;
+  border-radius: 16px;
+  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.25);
+}
+.top-brandbar .brand img.logo-full { height: clamp(60px, 9vw, 88px); width: auto; display: block; }
+.site-header .nav-brand img.logo-full { height: 48px; }
 .top-brandbar .top-phone {
   font-family: "IBM Plex Mono", monospace;
   font-size: clamp(1.6rem, 3.5vw, 2.2rem);

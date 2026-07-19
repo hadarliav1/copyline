@@ -132,11 +132,14 @@ function layout(lang, page, child) {
   return `
     <div class="top-contact top-brandbar">
       <a class="brand" href="${pathFor(lang)}" data-route aria-label="CopyLine">
-        <img src="${BASE_PATH}/public/assets/logo-full.png" alt="CopyLine קופיליין" class="logo-full" />
+        <span class="logo-chip"><img src="${BASE_PATH}/public/assets/logo-full.png" alt="CopyLine קופיליין" class="logo-full" /></span>
       </a>
       <a class="top-phone" href="tel:1700700388">${icons.phone}${t.common.placeholderPhone}</a>
     </div>
     <header class="site-header">
+      <a class="brand nav-brand" href="${pathFor(lang)}" data-route aria-label="CopyLine">
+        <img src="${BASE_PATH}/public/assets/logo-full.png" alt="CopyLine קופיליין" class="logo-full" />
+      </a>
       <button class="menu-toggle" aria-label="Menu" aria-expanded="false">${icons.message}</button>
       <nav class="nav" aria-label="Main navigation">
         ${nav.map(([route, label]) => `<a data-route class="${route === page ? "active" : ""}" href="${pathFor(lang, route)}">${label}</a>`).join("")}
