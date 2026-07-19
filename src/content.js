@@ -329,7 +329,7 @@ export const copy = {
       company: "חברה",
       message: "מה תרצו לרכוש, להשכיר, לתחזק או לדווח?",
       send: "שליחת פנייה",
-      required: "שדות הטופס מוכנים לחיבור למערכת CRM או מייל.",
+      required: "נחזור אליכם בהקדם — בדרך כלל באותו יום עסקים.",
       callNow: "לפרטים והזמנות חייגו"
     },
     home: {
@@ -376,7 +376,7 @@ export const copy = {
       metaTitle: "מכונות צילום ומדפסות CopyLine | ציוד לעסקים",
       metaDescription: "קטלוג מכונות צילום ומדפסות לעסקים של CopyLine עם מדפסות משרדיות, משולבות, לייזר, צבע ושחור-לבן.",
       headline: "מכונות צילום ומדפסות מוכנות להרחבה",
-      intro: "הקטלוג מוכן לקליטת דגמים אמיתיים בלבד. כאשר תספקו רשימת מפרטים, כל כרטיס יקבל תמונה מדויקת, מפרט מלא, מונה ועמוד מוצר.",
+      intro: "מבחר דגמים מובילים מהיצרנים הגדולים — מכונות צילום ומדפסות לעסקים, עם מפרט מלא לכל דגם והתאמה אישית לפי צרכי העסק.",
       filters: ["מכונות צילום", "מדפסות משרדיות", "מדפסות משולבות", "מדפסות לייזר", "מדפסות צבע", "שחור-לבן", "מדפסות לעסקים"],
       categories: [
         ["מדפסות משרדיות", "לצוותים קטנים ובינוניים, רכישה או השכרה, שחור-לבן או צבע."],
@@ -408,7 +408,7 @@ export const copy = {
       benefits: "יתרונות מרכזיים",
       useCases: "שימושים מומלצים",
       consumables: "תאימות טונרים",
-      consumablesText: "כאן יופיעו בהמשך טונרים ויחידות תוף תואמים לפי הדגם האמיתי.",
+      consumablesText: "אנחנו מספקים טונרים ויחידות תוף תואמים לכל הדגמים בקטלוג — פנו אלינו להתאמה מדויקת.",
       related: "מדפסות נוספות"
     },
     contact: {
@@ -439,7 +439,7 @@ export const copy = {
       company: "Company",
       message: "What do you need to buy, lease, service or report?",
       send: "Send Request",
-      required: "Form fields are ready to connect to CRM or email.",
+      required: "We usually get back to you within one business day.",
       callNow: "For details and orders call"
     },
     home: {
@@ -486,7 +486,7 @@ export const copy = {
       metaTitle: "CopyLine Copier and Printer Catalog | Business Equipment",
       metaDescription: "CopyLine business copier and printer catalog with office, multifunction, laser, color and black-and-white printers.",
       headline: "A copier and printer catalog built to scale",
-      intro: "The catalog is ready for real models only. Once you provide specifications, each card will receive the correct image, full specs, meter data and a product page.",
+      intro: "A curated selection of leading models from major manufacturers \u2014 business copiers and printers with full specifications, matched to your needs.",
       filters: ["Copiers", "Office printers", "Multifunction printers", "Laser printers", "Color printers", "Black-and-white", "Business printers"],
       categories: [
         ["Office printers", "For small and mid-size teams, purchase or rental, mono or color."],
@@ -518,7 +518,7 @@ export const copy = {
       benefits: "Main benefits",
       useCases: "Recommended use cases",
       consumables: "Toner compatibility",
-      consumablesText: "Compatible toner and drum units will appear here once the real model is added.",
+      consumablesText: "We supply compatible toner and drum units for every model in the catalog \u2014 contact us for an exact match.",
       related: "Related printers"
     },
     contact: {

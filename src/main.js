@@ -296,7 +296,7 @@ function printers(lang) {
       <div class="catalog-system">
         <div class="catalog-intro">
           <h2>${hasProducts ? (lang === "he" ? "דגמים זמינים בקטלוג" : "Available catalog models") : t.emptyTitle}</h2>
-          <p>${hasProducts ? (lang === "he" ? "הדגמים הבאים נבנו מתוך מצגת החברה. תמונות מוצגות רק כאשר קיימת תמונה מאומתת מהמקור שסופק." : "The following models were built from the company presentation. Images are shown only when a verified source image was provided.") : t.emptyText}</p>
+          <p>${hasProducts ? (lang === "he" ? "מבחר דגמים נבחרים מהקטלוג שלנו. לא מצאתם את הדגם שאתם מחפשים? דברו איתנו ונתאים לכם פתרון." : "A selection of models from our catalog. Looking for a different model? Talk to us and we will match the right solution.") : t.emptyText}</p>
           <a class="button" href="${pathFor(lang, "contact")}" data-route>${copy[lang].common.quote}${icons.arrow}</a>
         </div>
         <div class="category-grid">

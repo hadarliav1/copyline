@@ -1045,13 +1045,13 @@ details p {
 /* ---------- Brand bar (logo on top, phone below) ---------- */
 .top-brandbar {
   flex-direction: column;
-  gap: 4px;
-  padding: 12px 18px 10px;
+  gap: 6px;
+  padding: 16px 18px 14px;
 }
-.top-brandbar .brand img.logo-full { height: 54px; width: auto; display: block; }
+.top-brandbar .brand img.logo-full { height: clamp(72px, 12vw, 110px); width: auto; display: block; }
 .top-brandbar .top-phone {
   font-family: "IBM Plex Mono", monospace;
-  font-size: 1.9rem;
+  font-size: clamp(1.6rem, 3.5vw, 2.2rem);
   font-weight: 700;
   color: var(--text-on-dark);
 }
